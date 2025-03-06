@@ -4,7 +4,7 @@ import 'package:audio_player_test/Services/dio_connection.dart';
 import 'package:get/get.dart';
 
 class SingerController extends GetxController {
-  RxBool loading = false.obs;
+  RxBool isloading = false.obs;
   RxList<SingersModel> singerlist = RxList();
 
   @override
@@ -14,15 +14,17 @@ class SingerController extends GetxController {
   }
 
   showsingerslist() async {
-    loading.value = true;
+    isloading.value = true;
     var response = await DioServices().getMethod(UrlConst.apiurl);
 
     if (response.statusCode == 200) {
       var singers = response.data['singers'];
-      for (var elements in singers) {
-        singerlist.add(SingersModel.fromJson(elements));
-      }
+
+      singerlist.value = (singers as List)
+          .map((e) => SingersModel.fromJson(e as Map<String, dynamic>))
+          .toList();
     }
-    loading.value = false;
+
+    isloading.value = false;
   }
 }

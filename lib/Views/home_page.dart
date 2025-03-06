@@ -1,4 +1,3 @@
-import 'package:audio_player_test/Constant/style.dart';
 import 'package:audio_player_test/Controllers/singer_controller.dart';
 import 'package:audio_player_test/Views/music_list.dart';
 import 'package:audio_player_test/Views/singers_list.dart';
@@ -15,16 +14,20 @@ class HomePage extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       key: drawer,
+      drawer: Drawer(
+        backgroundColor: Theme.of(context).drawerTheme.backgroundColor,
+      ),
       appBar: AppBar(
           title: Padding(
         padding: EdgeInsets.all(20),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "آوادیس",
-              style: fontListHome,
-            )
+              style: Theme.of(context).appBarTheme.titleTextStyle,
+            ),
+            IconButton(onPressed: () {}, icon: Icon(Icons.search))
           ],
         ),
       )),

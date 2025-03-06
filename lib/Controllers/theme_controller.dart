@@ -6,18 +6,45 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 //LightTheme
 final ThemeData lightTheme = ThemeData(
-  brightness: Brightness.light,
-  scaffoldBackgroundColor: Color(0xFFC1DBD4),
-  appBarTheme: AppBarTheme(
-    elevation: 2,
-    backgroundColor: Color(0xFFC1DBD4),
-  ),
-  textTheme: TextTheme(
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: Color(0xFFC1DBD4),
+    appBarTheme: AppBarTheme(
+        elevation: 2,
+        backgroundColor: Color(0xFFC1DBD4),
+        titleTextStyle: TextStyle(
+            fontFamily: "Peyda-B", fontSize: 14, color: Colors.black)),
+    textTheme: TextTheme(
       titleSmall: TextStyle(
           color: const Color.fromARGB(255, 35, 35, 36),
           fontFamily: "Peyda-B",
-          fontSize: 14)),
-);
+          fontSize: 14),
+      titleLarge: TextStyle(
+          color: const Color.fromARGB(221, 55, 53, 53),
+          fontSize: 15,
+          fontFamily: "Peyda-Bo"),
+      labelMedium: TextStyle(
+          color: const Color.fromARGB(82, 55, 53, 53),
+          fontSize: 16,
+          fontFamily: "Peyda-SB"),
+      displaySmall: TextStyle(
+          color: const Color.fromARGB(221, 255, 255, 255),
+          fontSize: 13,
+          fontFamily: "Peyda-M"),
+      labelSmall: TextStyle(
+          color: const Color.fromARGB(221, 255, 255, 255),
+          fontSize: 13,
+          fontFamily: "Peyda-M"),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
+            padding:
+                WidgetStatePropertyAll(EdgeInsets.fromLTRB(35, 15, 35, 15)),
+            backgroundColor:
+                WidgetStatePropertyAll(const Color.fromARGB(255, 49, 103, 84)),
+            overlayColor: WidgetStatePropertyAll(Colors.amberAccent))),
+    drawerTheme: DrawerThemeData(backgroundColor: Colors.amberAccent));
 
 //DarkTheme
 final ThemeData darkTheme = ThemeData(

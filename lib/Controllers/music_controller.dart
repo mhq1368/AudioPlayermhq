@@ -22,11 +22,12 @@ class MusicsController extends GetxController {
 
     if (response.statusCode == 200) {
       var musics = response.data['lastTenMusics'];
-      for (var elements in musics) {
-        musiclist.add(MusicModel.fromJson(elements));
-      }
-      loading.value = false;
+      musiclist.value = (musics as List)
+          .map((e) => MusicModel.fromJson(e as Map<String, dynamic>))
+          .toList();
     }
+
+    loading.value = false;
   }
 
   getmusiclistbysinger(singerid) async {

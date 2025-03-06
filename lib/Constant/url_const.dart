@@ -6,4 +6,6 @@ class UrlConst {
 
   static String apilasttenmusic = "${baseapi}Musics/GetLastTenRecords";
   static String apimusiclistsinger = "${baseapi}Musics/";
+  static String sendCodeToUser = "${baseapi}SmsVerify/send";
+  static const bapi = 'http://192.168.0.106:5272/api/';
 }
